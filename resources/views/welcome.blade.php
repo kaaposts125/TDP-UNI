@@ -22,13 +22,25 @@
                 <div class="navbar-collapse collapse" id="navbar4">
                     <ul class="navbar-nav">
                         <li class="nav-item active">
-                            <a class="nav-link" href="#">Link <span class="sr-only">Home</span></a>
+                            <a class="nav-link" href="/pirmdiena">Pirmdiena<span class="sr-only"></span></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="//codeply.com">Codeply</a>
+                            <a class="nav-link" href="/otrdiena">Otrdiena<span class="sr-only"></span></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Link</a>
+                            <a class="nav-link" href="/trešdiena">Trešdiena<span class="sr-only"></span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/ceturdiena">Ceturdiena<span class="sr-only"></span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/piektidena">Piektdiena<span class="sr-only"></span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/sestdiena">Sestdiena<span class="sr-only"></span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/svetdiena">Svētdiena<span class="sr-only"></span></a>
                         </li>
                     </ul>
                 </div>
@@ -36,9 +48,23 @@
 
             </div>
             <div class="content">
-                @yield('text')
-                <div class="title m-b-md">
-                    Laravel
+                <div class="container-fluid px-0">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <img src="/storage/@lang('days.'.Request::segment(2)).jpg" alt="placeholder 960" class="img-responsive img-fluid" />
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="row">
+                        <div class="col-md-2"></div>
+                        <div class="col-md-8 mt-4 mx-2">
+                            <p>
+                                @lang('days.'.Request::segment(2).'-text')
+                            </p>
+                        </div>
+                        <div class="col-md-2"></div>
+                    </div>
                 </div>
             </div>
         </div>
