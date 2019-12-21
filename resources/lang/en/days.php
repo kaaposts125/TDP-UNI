@@ -1,11 +1,18 @@
 <?php
 
 return [
-    'monday' => 'Monday'
-    'tuesday' => 'Tuesday'
-    'wednesday' => 'Wednesday'
-    'thursday' => 'Thursday'
-    'friday' => 'Friday'
-    'saturday' => 'Saturday'
-    'sunday' => 'Sunday'
-]
+    'monday' => 'Monday',
+    'monday-text' => '',
+    'tuesday' => 'Tuesday',
+    'tuesday-text' => '',
+    'wednesday' => 'Wednesday',
+    'wednesday-text' => '',
+    'thursday' => 'Thursday',
+    'thursday-text' => '',
+    'friday' => 'Friday',
+    'friday-text' => '',
+    'saturday' => 'Saturday',
+    'saturday-text' => '',
+    'sunday' => 'Sunday',
+    'sunday-text' => ''
+];
