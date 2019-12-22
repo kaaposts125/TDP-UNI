@@ -6,6 +6,26 @@
         <title>TDP</title>
         <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}" defer></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script>
+            $('.navbar-nav .nav-link').click(function(){
+                $('.navbar-nav .nav-link').removeClass('active');
+                $(this).addClass('active');
+            })
+        </script>
+        <style>
+            .column {
+            float: left;
+            width: 50%;
+            }
+
+            /* Clear floats after the columns */
+            .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+        </style>
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
         <!-- Styles -->
@@ -14,38 +34,48 @@
     <body>
         <div class="flex-center position-ref full-height">
             <div>
-            <nav class="navbar navbar-expand-md navbar-dark bg-info">
+            <nav class="navbar navbar-expand-md navbar-dark bg-dark">
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar4">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse" id="navbar4">
                     <ul class="navbar-nav">
-                        <li class="nav-item active">
+                        <li class="nav-item @if(Request::segment(2) == 'monday') active h5 @endif">
                             <a class="nav-link" href="monday">@lang('days.monday')<span class="sr-only"></span></a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item @if(Request::segment(2) == 'tuesday') active h5 @endif">
                             <a class="nav-link" href="tuesday">@lang('days.tuesday')<span class="sr-only"></span></a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item @if(Request::segment(2) == 'wednesday') active h5 @endif">
                             <a class="nav-link" href="wednesday">@lang('days.wednesday')<span class="sr-only"></span></a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item @if(Request::segment(2) == 'thursday') active h5 @endif">
                             <a class="nav-link" href="thursday">@lang('days.thursday')<span class="sr-only"></span></a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item @if(Request::segment(2) == 'friday') active h5 @endif">
                             <a class="nav-link" href="friday">@lang('days.friday')<span class="sr-only"></span></a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item @if(Request::segment(2) == 'saturday') active h5 @endif">
                             <a class="nav-link" href="saturday">@lang('days.saturday')<span class="sr-only"></span></a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item @if(Request::segment(2) == 'sunday') active h5 @endif">
                             <a class="nav-link" href="sunday">@lang('days.sunday')<span class="sr-only"></span></a>
                         </li>
                     </ul>
                 </div>
-                
+                <div class="dropleft">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="dropdown-toggle nav-link" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown">
+                                {{ Request::segment(1) == 'en' ? 'EN' : 'LV' }}
+                            </a>        
+                            <div class="dropdown-menu">
+                            <a class="dropdown-item" href="/{{ Request::segment(1) == 'en' ? 'lv' : 'en' }}/{{Request::segment(2)}}">{{ Request::segment(1) == 'en' ? 'LV' : 'EN' }}</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
             </nav>
-
             </div>
             <div class="content">
                 <div class="container-fluid px-0">
@@ -68,5 +98,15 @@
                 </div>
             </div>
         </div>
+        <footer class="page-footer font-small footer-copyright text-center py-3 ">
+            <div class="row footer-copyright text-center py-3 ">
+                <div class="column">
+                    @lang('info.footer-creator')
+                </div>
+                <div class="column">
+                    @lang('info.footer-webpage')
+                </div>
+            </div>
+        </footer>
     </body>
 </html>
