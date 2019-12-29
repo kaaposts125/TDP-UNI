@@ -3,33 +3,27 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
         <title>TDP</title>
         <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}" defer></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-        <script>
-            $('.navbar-nav .nav-link').click(function(){
-                $('.navbar-nav .nav-link').removeClass('active');
-                $(this).addClass('active');
-            })
-        </script>
-        <style>
-            .column {
-            float: left;
-            width: 50%;
+        <style type="text/css">
+            @font-face {
+                font-family: 'aileronlight';
+                src: url('/fonts/Aileron-Light.otf');
+                font-weight: normal;
+                font-style: normal;
             }
-
-            /* Clear floats after the columns */
-            .row:after {
-            content: "";
-            display: table;
-            clear: both;
-        }
+            div {
+                font-family: aileronlight;
+            }
+            nav {
+                font-size: 120%;
+            }
+            div.content {
+                font-size: 150%;
+            }
         </style>
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-        <!-- Styles -->
-        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     </head>
     <body>
         <div class="flex-center position-ref full-height">
@@ -40,25 +34,25 @@
                 </button>
                 <div class="navbar-collapse collapse" id="navbar4">
                     <ul class="navbar-nav">
-                        <li class="nav-item @if(Request::segment(2) == 'monday') active h5 @endif">
+                        <li class="nav-item @if(Request::segment(2) == 'monday') active h4 @endif">
                             <a class="nav-link" href="monday">@lang('days.monday')<span class="sr-only"></span></a>
                         </li>
-                        <li class="nav-item @if(Request::segment(2) == 'tuesday') active h5 @endif">
+                        <li class="nav-item @if(Request::segment(2) == 'tuesday') active h4 @endif">
                             <a class="nav-link" href="tuesday">@lang('days.tuesday')<span class="sr-only"></span></a>
                         </li>
-                        <li class="nav-item @if(Request::segment(2) == 'wednesday') active h5 @endif">
+                        <li class="nav-item @if(Request::segment(2) == 'wednesday') active h4 @endif">
                             <a class="nav-link" href="wednesday">@lang('days.wednesday')<span class="sr-only"></span></a>
                         </li>
-                        <li class="nav-item @if(Request::segment(2) == 'thursday') active h5 @endif">
+                        <li class="nav-item @if(Request::segment(2) == 'thursday') active h4 @endif">
                             <a class="nav-link" href="thursday">@lang('days.thursday')<span class="sr-only"></span></a>
                         </li>
-                        <li class="nav-item @if(Request::segment(2) == 'friday') active h5 @endif">
+                        <li class="nav-item @if(Request::segment(2) == 'friday') active h4 @endif">
                             <a class="nav-link" href="friday">@lang('days.friday')<span class="sr-only"></span></a>
                         </li>
-                        <li class="nav-item @if(Request::segment(2) == 'saturday') active h5 @endif">
+                        <li class="nav-item @if(Request::segment(2) == 'saturday') active h4 @endif">
                             <a class="nav-link" href="saturday">@lang('days.saturday')<span class="sr-only"></span></a>
                         </li>
-                        <li class="nav-item @if(Request::segment(2) == 'sunday') active h5 @endif">
+                        <li class="nav-item @if(Request::segment(2) == 'sunday') active h4 @endif">
                             <a class="nav-link" href="sunday">@lang('days.sunday')<span class="sr-only"></span></a>
                         </li>
                     </ul>
@@ -78,34 +72,34 @@
             </nav>
             </div>
             <div class="content">
-                <div class="container-fluid px-0">
+                <div class="container-fluid">
                     <div class="row">
-                        <div class="col-md-12">
+                        <div class="col-md-12 px-0">
                             <img src="/storage/@lang('days.'.Request::segment(2)).jpg" alt="sad sounds" class="img-responsive img-fluid" />
                         </div>
                     </div>
                 </div>
-                <div>
+                <div class="container-fluid ">
                     <div class="row">
-                        <div class="col-md-2"></div>
-                        <div class="col-md-8 mt-4 mx-2">
-                            <p>
-                                @lang('days.'.Request::segment(2).'-text')
-                            </p>
+                        <div class="col-md-3"></div>
+                        <div class="col-md-6 mt-4 mx-4 py-4">
+                            @lang('days.'.Request::segment(2).'-text')
                         </div>
-                        <div class="col-md-2"></div>
+                        <div class="col-md-3"></div>
                     </div>
                 </div>
             </div>
         </div>
-        <footer class="page-footer font-small footer-copyright text-center py-3 ">
-            <div class="row footer-copyright text-center py-3 ">
-                <div class="column">
+        <footer class="text-center bg-dark text-white-50 py-4 container-fluid">
+            <div class="row text-center">
+                <div class="col-md-3"></div>
+                <div class="col-md-3">
                     @lang('info.footer-creator')
                 </div>
-                <div class="column">
+                <div class="col-md-3">
                     @lang('info.footer-webpage')
                 </div>
+                <div class="col-md-3"></div>
             </div>
         </footer>
     </body>

@@ -18,3 +18,6 @@ Route::get('/{locale}/{day}', function ($locale) {
     App::setLocale($locale);
     return view('welcome');
 });
+Route::get('/', function () {
+    return redirect('lv/monday');
+});
