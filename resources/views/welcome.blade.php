@@ -29,10 +29,10 @@
         <div class="flex-center position-ref full-height">
             <div>
             <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar4">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="navbar-collapse collapse" id="navbar4">
+                <div class="navbar-collapse collapse" id="navbar">
                     <ul class="navbar-nav">
                         <li class="nav-item @if(Request::segment(2) == 'monday') active h4 @endif">
                             <a class="nav-link" href="monday">@lang('days.monday')<span class="sr-only"></span></a>
@@ -57,15 +57,16 @@
                         </li>
                     </ul>
                 </div>
-                <div class="dropleft">
+                <div class="dropdown">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="dropdown-toggle nav-link" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown">
+                            {{-- <a class="dropdown-toggle nav-link" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown">
                                 {{ Request::segment(1) == 'en' ? 'EN' : 'LV' }}
                             </a>        
-                            <div class="dropdown-menu">
-                            <a class="dropdown-item" href="/{{ Request::segment(1) == 'en' ? 'lv' : 'en' }}/{{Request::segment(2)}}">{{ Request::segment(1) == 'en' ? 'LV' : 'EN' }}</a>
-                            </div>
+                            <div class="dropdown-menu dropdown-menu-right navbar-dark">
+                                <a class="dropdown-item h5" href="/{{ Request::segment(1) == 'en' ? 'lv' : 'en' }}/{{Request::segment(2)}}">{{ Request::segment(1) == 'en' ? 'LV' : 'EN' }}</a>
+                            </div> --}}
+                            <a class="nav-link h4" href="/{{ Request::segment(1) == 'en' ? 'lv' : 'en' }}/{{Request::segment(2)}}">{{ Request::segment(1) == 'en' ? 'LV' : 'EN' }}</a>
                         </li>
                     </ul>
                 </div>
